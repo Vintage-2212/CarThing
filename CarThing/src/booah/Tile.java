@@ -16,9 +16,14 @@ public class Tile {
 	private Hashtable<Direction, Set<Sign>> entranceSigns;
 	private Hashtable<Direction, Set<Sign>> exitSigns;
 
-	public Tile() {
+	public Tile(Road road) {
 		entranceSigns = new Hashtable<>();
 		exitSigns = new Hashtable<>();
+		this.road = road;
+	}
+	
+	public Tile(Direction[] directions) {
+		this(new Road(directions));
 	}
 
 	public void addEntranceSign(Direction d, Sign s) {
@@ -43,7 +48,7 @@ public class Tile {
 
 	public String encode() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(road + ",N" + entranceSigns + ",X" + exitSigns);
+		sb.append(road.encode() + ",N" + entranceSigns + ",X" + exitSigns);
 		return sb.toString();
 	}
 
@@ -53,11 +58,10 @@ public class Tile {
 		String entranceSigns = tile.substring(tile.indexOf('{'), tile.indexOf('}') + 1);
 		tile = tile.substring(tile.indexOf('}') + 1);
 		String exitSigns = tile.substring(tile.indexOf('{'), tile.indexOf('}') + 1);
-		System.out.println(roadType);
+		
 		Hashtable<Direction, Set<Sign>> en = decodeSignListThingChangeNamePlease(entranceSigns);
 		Hashtable<Direction, Set<Sign>> ex = decodeSignListThingChangeNamePlease(exitSigns);
-		Tile t = new Tile();
-		t.road = Road.decode(roadType);
+		Tile t = new Tile(Road.decode(roadType));
 		en.forEach((dir, s) -> {
 			s.forEach((sign) -> {
 				t.addEntranceSign(dir, sign);
@@ -90,19 +94,5 @@ public class Tile {
 			}
 		}
 		return ret;
-	}
-
-	public static void main(String[] args) {
-		Tile t = new Tile();
-		t.addEntranceSign(Direction.SOUTH, StopSign.getInstance());
-		t.addEntranceSign(Direction.EAST, new TrafficLight());
-		t.addEntranceSign(Direction.SOUTH, new MaxSpeedSign(80));
-//
-//		t.addExitSign(Direction.NORTH, new MinSpeedSign(20));
-//		t.addExitSign(Direction.WEST, new TrafficLight());
-//		t.addExitSign(Direction.WEST, new MinSpeedSign(10));
-		System.out.println(t.encode() + "\n");
-		System.out.println(Tile.decode(t.encode()).encode());;
-
 	}
 }
