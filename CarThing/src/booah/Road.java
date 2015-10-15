@@ -12,7 +12,8 @@ import java.util.List;
  */
 public class Road {
 	
-	private int code;
+	public int code;
+	public static final Direction[] all = Direction.values();
 	
 	/**
 	 * An array of the physical roads that lead to the road
@@ -21,7 +22,6 @@ public class Road {
 
 	public Road(Direction[] directions) {
 		this.directions = directions;
-		Direction[] all = Direction.values();
 		for(int i = 0; i < all.length; i++) {
 			if (contains(all[i])) {
 				code += (1 << i);
@@ -44,7 +44,6 @@ public class Road {
 
 	public static Road decode(String roadType) {
 		List<Direction> toAdd = new ArrayList<>();
-		Direction[] all = Direction.values();
 		int code = Integer.parseInt(roadType, 16);
 		for (int i = 0; i < all.length; i++) {
 			if ((code & (1 << i)) != 0) {

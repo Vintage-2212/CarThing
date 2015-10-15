@@ -1,14 +1,12 @@
 package booah;
 
+import java.awt.Graphics;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Set;
 
-import signs.MaxSpeedSign;
-import signs.MinSpeedSign;
+import graphics.Trump;
 import signs.Sign;
-import signs.StopSign;
-import signs.TrafficLight;
 
 public class Tile {
 
@@ -95,4 +93,9 @@ public class Tile {
 		}
 		return ret;
 	}
+	
+	public void draw(Graphics g) {
+		g.fillPolygon(Trump.getPolygonByRoad(road));
+	}
+	
 }
