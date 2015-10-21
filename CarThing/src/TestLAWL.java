@@ -4,8 +4,8 @@ import java.util.Arrays;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import booah.Road;
 import graphics.Trump;
+import map.Road;
 
 public class TestLAWL extends JPanel {
 	

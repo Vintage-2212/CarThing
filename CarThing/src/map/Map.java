@@ -1,4 +1,4 @@
-package booah;
+package map;
 
 public class Map {
 

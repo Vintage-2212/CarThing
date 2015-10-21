@@ -1,4 +1,4 @@
-package booah;
+package map;
 
 import java.awt.Graphics;
 import java.util.HashSet;

@@ -4,8 +4,8 @@ import java.awt.Polygon;
 import java.util.ArrayList;
 import java.util.List;
 
-import booah.Direction;
-import booah.Road;
+import map.Direction;
+import map.Road;
 
 public class Trump {
 
