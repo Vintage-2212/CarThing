@@ -1,5 +1,7 @@
 package map;
 
+import java.net.NetworkInterface;
+
 public class Map {
 
 	private Tile[][] tiles;
@@ -32,6 +34,26 @@ public class Map {
 		return new Map(tiles);
 	}
 	
+	public Tile get(int i, int j){
+		return tiles[i][j];
+	}
 	
-
+	public int getSize(int index){
+		if(index == 1){
+			return tiles.length;
+		} else if (index == 2){
+			return tiles[0].length;
+		} else {
+			throw new IllegalArgumentException();
+		}
+	}
+	
+	public int getWidth(){
+		return getSize(2);
+	}
+	
+	public int getHeight(){
+		return getSize(1);
+	}
+	
 }

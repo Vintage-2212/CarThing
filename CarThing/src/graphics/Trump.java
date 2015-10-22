@@ -9,7 +9,7 @@ import map.Road;
 
 public class Trump {
 
-	public static final int ROAD_WIDTH = 20;
+	public static final int ROAD_WIDTH = 40;
 	public static final int TILE_WIDTH = 100;
 
 	public static Polygon getPolygonByRoad(Road road) {
@@ -18,7 +18,7 @@ public class Trump {
 		
 		x.add(new Integer((TILE_WIDTH - ROAD_WIDTH) / 2));
 		y.add(new Integer((TILE_WIDTH + ROAD_WIDTH) / 2));
-		if (road.contains(Direction.EAST)) {
+		if (road.contains(Direction.WEST)) {
 			x.add(0);
 			y.add(new Integer((TILE_WIDTH + ROAD_WIDTH) / 2));
 			
@@ -36,7 +36,7 @@ public class Trump {
 		}
 		x.add(new Integer((TILE_WIDTH + ROAD_WIDTH) / 2));
 		y.add(new Integer((TILE_WIDTH - ROAD_WIDTH) / 2));
-		if (road.contains(Direction.WEST)) {
+		if (road.contains(Direction.EAST)) {
 			x.add(TILE_WIDTH);
 			y.add(new Integer((TILE_WIDTH - ROAD_WIDTH) / 2));
 			

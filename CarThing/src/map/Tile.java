@@ -20,7 +20,7 @@ public class Tile {
 		this.road = road;
 	}
 	
-	public Tile(Direction[] directions) {
+	public Tile(Direction... directions) {
 		this(new Road(directions));
 	}
 
@@ -94,7 +94,7 @@ public class Tile {
 		return ret;
 	}
 	
-	public void draw(Graphics g) {
+	public void fill(Graphics g) {
 		g.fillPolygon(Trump.getPolygonByRoad(road));
 	}
 	
