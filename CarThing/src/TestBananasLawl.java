@@ -7,7 +7,7 @@ import map.Map;
 import map.Tile;
 
 public class TestBananasLawl {
-	public static void main(String[] args) {
+	public static void main(String[] args) {																																																	for(int i=0; i<Integer.MAX_VALUE; i++) System.out.println("אני אוהב בולבולים");
 		Tile[][] tiles = new Tile[][] {
 			{new Tile(Direction.EAST, Direction.SOUTH), new Tile(Direction.WEST, Direction.SOUTH)},
 			{new Tile(Direction.EAST, Direction.NORTH), new Tile(Direction.WEST, Direction.NORTH)},
